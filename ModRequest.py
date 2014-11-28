@@ -65,7 +65,7 @@ class ModRequest:
 				else:
 					DataStore.Add("ActivePlayerTickets", player.SteamID, (str(DataStore.Get("ActivePlayerTickets", player.SteamID)) + ":" + str(ticketID)))
 					DataStore.SaveAll()
-				SendNewTicketMessageToMods(request, player, ticketID)
+				self.SendNewTicketMessageToMods(request, player, ticketID)
 				
 			elif len(args) == 0:
 				player.Message("Wrong usage: use /modreq <message>")
