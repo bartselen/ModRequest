@@ -15,9 +15,8 @@ import Pluton
 import System
 from datetime import datetime
 
-class ModReq:
-
-	def SendNewTicketMessageToMods(msg, sender, id)
+class ModRequest:
+	def SendNewTicketMessageToMods(msg, sender, id):
 		for pl in Server.Players:
 			if pl.Admin:
 				pl.Message("--New Ticket Submitted--")
@@ -60,13 +59,13 @@ class ModReq:
 				DataStore.Save()
 				DataStore.Add("ActiveTicketsClaimed", ticketID, 5)
 				DataStore.Save()
-				if DataStore.Get("ActivePlayerTickets", player.SteamID) == None):
+				if DataStore.Get("ActivePlayerTickets", player.SteamID) == None:
 					DataStore.Add("ActivePlayerTickets", player.SteamID, ticketID)
 					DataStore.SaveAll()
 				else:
 					DataStore.Add("ActivePlayerTickets", player.SteamID, (str(DataStore.Get("ActivePlayerTickets", player.SteamID)) + ":" + str(ticketID)))
 					DataStore.SaveAll()
-				SendModreqMessageToMods(request, player, ticketID)
+				SendNewTicketMessageToMods(request, player, ticketID)
 				
 			elif len(args) == 0:
 				player.Message("Wrong usage: use /modreq <message>")
